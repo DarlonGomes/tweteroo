@@ -26,13 +26,14 @@ app.post("/tweets", (req, res) => {
             break;
         }
     }
-    tweets.push(tweet);
+
+    tweets.unshift(tweet);
     res.status(201).send("OK");
 })
 
 app.get("/tweets", (req, res) => {
-   let invertido = tweets.reverse();
-    res.send(invertido);
+   
+    res.send(tweets);
 })
 
 app.listen(5000);
